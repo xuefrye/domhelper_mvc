@@ -7,7 +7,7 @@ import com.domhelper.dao.UserDao;
  * @Date: 2019/4/18 4:54
  * @Version: 1.0
  * @File: UserDaoImpl
- * @Description:
+ * @Description: UserDao实现类
  */
 
 public class UserDaoImpl implements UserDao {

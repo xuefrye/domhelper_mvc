@@ -1,6 +1,5 @@
 package com.domhelper.test;
 
-import com.alibaba.fastjson.JSON;
 import com.domhelper.bean.Admin;
 import org.junit.Test;
 
@@ -18,7 +17,8 @@ public class BeanTest {
         Admin admin = new Admin();
 
         admin.setAdminId(1);
-        admin.setAdminName(null); //null不转换
+        admin.setAdminPassword("xixi");
+        admin.setAdminName(null); //null不转换到json
 
         String json = admin.toJSONString();
         System.out.println(json);

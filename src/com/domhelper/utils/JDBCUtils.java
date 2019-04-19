@@ -12,7 +12,11 @@ import java.sql.Statement;
 import java.util.Properties;
 
 /**
- * JDBC工具类 使用druid连接池
+ * @Author: xuefrye
+ * @Date: 2019/4/17 15:20
+ * @Version: 1.0
+ * @File: JDBCUtils
+ * @Description: JDBC工具类 使用druid连接池
  */
 public class JDBCUtils {
 

@@ -17,7 +17,7 @@ import java.util.Map;
  * @Date: 2019/4/19 23:00
  * @Version: 1.0
  * @File: AdminDaoImpl
- * @Description:
+ * @Description: AdminDao实现类
  */
 public class AdminDaoImpl implements AdminDao {
 

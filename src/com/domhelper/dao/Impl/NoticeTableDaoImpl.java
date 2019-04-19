@@ -7,7 +7,7 @@ import com.domhelper.dao.NoticeTableDao;
  * @Date: 2019/4/18 4:57
  * @Version: 1.0
  * @File: NoticeTableDaoImpl
- * @Description:
+ * @Description: NoticeTableDao实现类
  */
 public class NoticeTableDaoImpl implements NoticeTableDao {
     //TODO
