@@ -1,4 +1,4 @@
-package com.domhelper.dao.Impl;
+package com.domhelper.dao.impl;
 
 import com.domhelper.dao.UserDao;
 

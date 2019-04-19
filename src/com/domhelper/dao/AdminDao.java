@@ -12,9 +12,44 @@ import java.util.List;
  * @Description: admin_table表数据库访问接口
  */
 public interface AdminDao {
+    /**
+     * 添加管理员到admin_table
+     *
+     * @param admin 需要添加的管理员对象
+     * @return 返回0说明添加失败
+     */
     int addAdmin(Admin admin);
 
+    /**
+     * 通过id查找管理员
+     *
+     * @param id 管理员id
+     * @return 若查找不到返回null
+     */
     Admin findAdminById(int id);
 
+    /**
+     * 查询所有管理员
+     *
+     * @return 所有的管理员信息
+     */
     List<Admin> findAllAdmin();
+
+
+    /**
+     * 通过id删除管理员
+     *
+     * @param id 管理员id
+     * @return 返回0说明删除失败
+     */
+    int deleteAdminById(int id);
+
+    /**
+     * 管理员登录查询
+     *
+     * @param adminName 管理员账号
+     * @param password  密码
+     * @return 若查找不到返回null
+     */
+    Admin findAdminByAdminNameAndPassword(String adminName, String password);
 }

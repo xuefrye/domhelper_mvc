@@ -13,29 +13,29 @@ import java.util.Properties;
 
 /**
  * @Author: xuefrye
- * @Date: 2019/4/17 15:20
+ * @Date: 2019/4/18 15:20
  * @Version: 1.0
  * @File: JDBCUtils
- * @Description: JDBC工具类 使用druid连接池
+ * @Description: JDBC工具类(使用druid) 设置连接的数据库地址
  */
 public class JDBCUtils {
 
     private static DataSource ds;
 
     //单例
-    private JDBCUtils() {}
+    private JDBCUtils() {
+    }
 
     static {
         try {
             //加载配置文件,使用ClassLoader加载配置文件，获取字节输入流
             Properties pro = new Properties();
 
-            //InputStream is = new FileInputStream("localhost.properties");
-            InputStream is = new FileInputStream("1758541396.cn.properties");
-            System.out.println(is);
+            InputStream is = new FileInputStream("localhost.properties");
+            //InputStream is = new FileInputStream("1758541396.cn.properties");
             pro.load(is);
 
-            //2.初始化连接池对象
+            //初始化连接池对象
             ds = DruidDataSourceFactory.createDataSource(pro);
 
             System.out.println("数据连接池初始化完毕");

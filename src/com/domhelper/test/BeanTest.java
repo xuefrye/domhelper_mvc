@@ -12,6 +12,9 @@ import org.junit.Test;
  */
 public class BeanTest {
 
+    /**
+     * 测试json字符串转换
+     */
     @Test
     public void testToJsonString(){
         Admin admin = new Admin();

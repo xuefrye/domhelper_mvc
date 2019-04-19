@@ -2,10 +2,8 @@ package com.domhelper.test;
 
 import com.domhelper.bean.Admin;
 import com.domhelper.dao.AdminDao;
-import com.domhelper.dao.Impl.AdminDaoImpl;
-import com.domhelper.utils.JDBCUtils;
+import com.domhelper.dao.impl.AdminDaoImpl;
 import org.junit.Test;
-import org.springframework.jdbc.core.JdbcTemplate;
 
 import java.util.List;
 
@@ -18,13 +16,13 @@ import java.util.List;
  */
 public class DaoTest {
 
+    private AdminDao dao = new AdminDaoImpl();
 
     /**
      * admin_table 查询/json测试
      */
     @Test
     public void test_findAdminById() {
-        AdminDao dao = new AdminDaoImpl();
 
         List<Admin> admins = dao.findAllAdmin();
         System.out.println(admins);
@@ -32,5 +30,10 @@ public class DaoTest {
         for (Admin admin : admins) {
             System.out.println(admin.toJSONString());
         }
+    }
+
+    @Test
+    public void test_delete(){
+        dao.deleteAdminById(9999);
     }
 }

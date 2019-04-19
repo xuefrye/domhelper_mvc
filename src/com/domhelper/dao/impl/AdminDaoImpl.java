@@ -1,16 +1,12 @@
-package com.domhelper.dao.Impl;
+package com.domhelper.dao.impl;
 
 import com.domhelper.bean.Admin;
 import com.domhelper.dao.AdminDao;
 import com.domhelper.utils.JDBCUtils;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.RowMapper;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.List;
-import java.util.Map;
 
 /**
  * @Author: xuefrye
@@ -23,7 +19,6 @@ public class AdminDaoImpl implements AdminDao {
 
     //连接模板对象
     private JdbcTemplate template = new JdbcTemplate(JDBCUtils.getDataSource());
-
 
     @Override
     public int addAdmin(Admin admin) {
@@ -46,8 +41,21 @@ public class AdminDaoImpl implements AdminDao {
     @Override
     public List<Admin> findAllAdmin() {
         String sql = "select * from admin_table";
+        //TODO 添加异常处理
         List<Admin> admins = template.query(sql, new BeanPropertyRowMapper<>(Admin.class));
         return admins;
+    }
+
+    @Override
+    public int deleteAdminById(int id) {
+        String sql = "delete from admin_table where admin_id = ?";
+        return template.update(sql, id);
+    }
+
+    @Override
+    public Admin findAdminByAdminNameAndPassword(String adminName, String password) {
+        //TODO
+        return null;
     }
 }
 
