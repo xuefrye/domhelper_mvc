@@ -40,7 +40,7 @@ public class AdminServiceImpl implements AdminService {
     }
 
     @Override
-    public Admin findByAdminNameAndPassword(String adminName, String password) {
+    public Admin login(String adminName, String password) {
         return dao.findAdminByAdminNameAndPassword(adminName, password);
     }
 }

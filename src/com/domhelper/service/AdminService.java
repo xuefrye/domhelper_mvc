@@ -20,5 +20,5 @@ public interface AdminService {
 
     List<Admin> findAll();
 
-    Admin findByAdminNameAndPassword(String adminName, String password);
+    Admin login(String adminName, String password);
 }
