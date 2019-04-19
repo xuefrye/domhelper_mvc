@@ -22,8 +22,8 @@ public class JDBCUtils {
 
     private static DataSource ds;
 
-    public JDBCUtils() {
-    }
+    //单例
+    private JDBCUtils() {}
 
     static {
         try {

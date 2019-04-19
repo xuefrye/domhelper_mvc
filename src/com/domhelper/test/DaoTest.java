@@ -14,7 +14,7 @@ import java.util.List;
  * @Date: 2019/4/19 22:58
  * @Version: 1.0
  * @File: DaoTest
- * @Description: dao包测试
+ * @Description: dao包测试类
  */
 public class DaoTest {
 
@@ -24,7 +24,6 @@ public class DaoTest {
      */
     @Test
     public void test_findAdminById() {
-        //JDBCUtils jdbcUtils = new JDBCUtils();
         AdminDao dao = new AdminDaoImpl();
 
         List<Admin> admins = dao.findAllAdmin();

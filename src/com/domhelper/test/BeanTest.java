@@ -8,7 +8,7 @@ import org.junit.Test;
  * @Date: 2019/4/19 22:36
  * @Version: 1.0
  * @File: BeanTest
- * @Description: bean包测试
+ * @Description: bean包测试类
  */
 public class BeanTest {
 
