@@ -1,6 +1,7 @@
 package com.domhelper.bean;
 
 import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.annotation.JSONField;
 
 /**
@@ -77,9 +78,11 @@ public class Admin {
                 '}';
     }
 
-    //TODO 实现toJSONString 方法
     public String toJSONString() {
         return JSON.toJSONString(this);
     }
 
+//    public JSONArray toJSONArray(){
+//
+//    }
 }
