@@ -2,6 +2,7 @@ package com.domhelper.bean;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.annotation.JSONField;
 
 /**
@@ -82,7 +83,7 @@ public class Admin {
         return JSON.toJSONString(this);
     }
 
-//    public JSONArray toJSONArray(){
-//
-//    }
+    public JSONObject toJSONObject() {
+        return JSON.parseObject(this.toJSONString());
+    }
 }

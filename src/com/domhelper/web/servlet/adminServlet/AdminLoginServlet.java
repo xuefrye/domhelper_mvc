@@ -1,4 +1,4 @@
-package com.domhelper.web.servlet;
+package com.domhelper.web.servlet.adminServlet;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
@@ -20,7 +20,7 @@ import java.io.IOException;
  * @Author: xuefrye
  * @Date: 2019/4/20 10:09
  * @Version: 1.0
- * @File: ${NAME}
+ * @File: AdminLoginServlet
  * @Description:
  */
 @WebServlet("/AdminLoginServlet")
@@ -49,14 +49,12 @@ public class AdminLoginServlet extends HttpServlet {
         AdminService service = new AdminServiceImpl();
         Admin loginAdmin = service.login(admin_name, password);
 
-
         if (loginAdmin != null) {
             //登录成功
             session.setAttribute("session", loginAdmin.getAdminId());
 
-            JSONObject data = JSON.parseObject(loginAdmin.toJSONString());
             JSONArray dataArray = new JSONArray();
-            dataArray.add(data);
+            dataArray.add(loginAdmin.toJSONObject());
 
             String res = ResponseFormat.resFormat("200", "管理员登陆成功", dataArray);
             response.getWriter().append(res);

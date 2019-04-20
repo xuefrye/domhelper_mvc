@@ -1,5 +1,6 @@
 package com.domhelper.test;
 
+import com.alibaba.fastjson.JSONArray;
 import com.domhelper.bean.Admin;
 import com.domhelper.dao.AdminDao;
 import com.domhelper.dao.impl.AdminDaoImpl;
@@ -33,7 +34,17 @@ public class DaoTest {
     }
 
     @Test
-    public void test_delete(){
+    public void test_delete() {
         dao.deleteAdminById(9999);
+    }
+
+    @Test
+    public void test_findAll() {
+        JSONArray adminArray = new JSONArray();
+        List<Admin> adminList = dao.findAllAdmin();
+        for (Admin admin : adminList) {
+            adminArray.add(admin.toJSONObject());
+        }
+        System.out.println(adminArray);
     }
 }

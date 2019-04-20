@@ -41,6 +41,7 @@ public class AdminDaoImpl implements AdminDao {
     @Override
     public List<Admin> findAllAdmin() {
         String sql = "select * from admin_table";
+
         //TODO 添加异常处理
         List<Admin> admins = template.query(sql, new BeanPropertyRowMapper<>(Admin.class));
         return admins;

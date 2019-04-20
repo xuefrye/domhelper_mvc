@@ -1,4 +1,4 @@
-package com.domhelper.web.servlet;
+package com.domhelper.web.servlet.adminServlet;
 
 import com.domhelper.bean.Admin;
 import com.domhelper.service.AdminService;
@@ -60,8 +60,8 @@ public class AddAdminServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        //TODO 修改乱码
-        String rs = ResponseFormat.resFormat("502", "����ʽ����", null);
+        //TODO 这里doGet和AdminLoginServlet中的处理方式不同
+        String rs = ResponseFormat.resFormat("502", "请求方式错误！", null);
         response.getWriter().append(rs);
     }
 }
