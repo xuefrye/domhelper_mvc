@@ -21,8 +21,10 @@ public class AdminDaoImpl implements AdminDao {
     private JdbcTemplate template = new JdbcTemplate(JDBCUtils.getDataSource());
 
     @Override
-    public int addAdmin(Admin admin) {
+    public int add(Admin admin) {
         String sql = "insert into admin_table (admin_id,admin_password,real_name) values (?, ?, ?)";
+
+        //TODO 添加异常处理
         int result = template.update(sql, admin.getAdminName(),
                 admin.getAdminPassword(),
                 admin.getRealName());
@@ -30,7 +32,7 @@ public class AdminDaoImpl implements AdminDao {
     }
 
     @Override
-    public Admin findAdminById(int id) {
+    public Admin findById(int id) {
         String sql = "select * from admin_table where admin_id = ?";
 
         //TODO 添加异常处理
@@ -39,7 +41,7 @@ public class AdminDaoImpl implements AdminDao {
     }
 
     @Override
-    public List<Admin> findAllAdmin() {
+    public List<Admin> findAll() {
         String sql = "select * from admin_table";
 
         //TODO 添加异常处理
@@ -48,13 +50,13 @@ public class AdminDaoImpl implements AdminDao {
     }
 
     @Override
-    public int deleteAdminById(int id) {
+    public int deleteById(int id) {
         String sql = "delete from admin_table where admin_id = ?";
         return template.update(sql, id);
     }
 
     @Override
-    public Admin findAdminByAdminNameAndPassword(String adminName, String password) {
+    public Admin findByAdminNameAndPassword(String adminName, String password) {
         //TODO
         return null;
     }

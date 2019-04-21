@@ -25,7 +25,7 @@ public class DaoTest {
     @Test
     public void test_findAdminById() {
 
-        List<Admin> admins = dao.findAllAdmin();
+        List<Admin> admins = dao.findAll();
         System.out.println(admins);
 
         for (Admin admin : admins) {
@@ -35,13 +35,13 @@ public class DaoTest {
 
     @Test
     public void test_delete() {
-        dao.deleteAdminById(9999);
+        dao.deleteById(9999);
     }
 
     @Test
     public void test_findAll() {
         JSONArray adminArray = new JSONArray();
-        List<Admin> adminList = dao.findAllAdmin();
+        List<Admin> adminList = dao.findAll();
         for (Admin admin : adminList) {
             adminArray.add(admin.toJSONObject());
         }

@@ -21,26 +21,26 @@ public class AdminServiceImpl implements AdminService {
 
     @Override
     public int add(Admin admin) {
-        return dao.addAdmin(admin);
+        return dao.add(admin);
     }
 
     @Override
     public Admin findById(int id) {
-        return dao.findAdminById(id);
+        return dao.findById(id);
     }
 
     @Override
     public int deleteById(int id) {
-        return dao.deleteAdminById(id);
+        return dao.deleteById(id);
     }
 
     @Override
     public List<Admin> findAll() {
-        return dao.findAllAdmin();
+        return dao.findAll();
     }
 
     @Override
     public Admin login(String adminName, String password) {
-        return dao.findAdminByAdminNameAndPassword(adminName, password);
+        return dao.findByAdminNameAndPassword(adminName, password);
     }
 }

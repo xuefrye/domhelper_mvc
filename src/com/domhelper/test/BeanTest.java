@@ -1,7 +1,10 @@
 package com.domhelper.test;
 
 import com.domhelper.bean.Admin;
+import com.domhelper.bean.Doorlady;
 import org.junit.Test;
+
+import javax.xml.transform.dom.DOMResult;
 
 /**
  * @Author: xuefrye
@@ -13,19 +16,32 @@ import org.junit.Test;
 public class BeanTest {
 
     /**
-     * 测试json字符串转换
+     * 测试Admin json转换
      */
     @Test
-    public void testToJsonString(){
+    public void testAdmin(){
         Admin admin = new Admin();
 
         admin.setAdminId(1);
         admin.setAdminPassword("xixi");
         admin.setAdminName(null); //null不转换到json
 
-        String json = admin.toJSONString();
-        System.out.println(json);
+        System.out.println(admin.toJSONString());
+        System.out.println(admin.toJSONObject());
     }
 
+
+    /**
+     * 测试doorlady json转换
+     */
+    @Test
+    public void testDoorlady(){
+        Doorlady doorlady = new Doorlady();
+        doorlady.setDoorladyId(123);
+        doorlady.setDoorladyName("qwer");
+
+        System.out.println(doorlady.toJSONString());
+        System.out.println(doorlady.toJSONObject());
+    }
 
 }

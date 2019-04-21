@@ -49,6 +49,7 @@ public class GetAdminListServlet extends HttpServlet {
         for (Admin admin : adminList) {
             adminArray.add(admin.toJSONObject());
         }
+
         String res = ResponseFormat.resFormat("200", "管理员列表查询成功", adminArray);
         response.getWriter().append(res);
     }

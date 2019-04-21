@@ -77,6 +77,7 @@ public class Admin {
                 ", realName='" + realName + '\'' +
                 ", isSuperAdmin=" + isSuperAdmin +
                 '}';
+
     }
 
     public String toJSONString() {
