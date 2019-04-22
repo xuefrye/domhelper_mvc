@@ -1,6 +1,5 @@
 package com.domhelper.web.servlet.doorLadyServlet;
 
-import com.domhelper.bean.Doorlady;
 import com.domhelper.service.DoorladyService;
 import com.domhelper.service.impl.DoorladyServiceImpl;
 import com.domhelper.utils.ResponseFormat;

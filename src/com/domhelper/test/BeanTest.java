@@ -1,10 +1,8 @@
 package com.domhelper.test;
 
-import com.domhelper.bean.Admin;
-import com.domhelper.bean.Doorlady;
+import com.domhelper.bean.impl.Admin;
+import com.domhelper.bean.impl.Doorlady;
 import org.junit.Test;
-
-import javax.xml.transform.dom.DOMResult;
 
 /**
  * @Author: xuefrye

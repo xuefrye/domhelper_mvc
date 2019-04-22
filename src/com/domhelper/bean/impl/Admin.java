@@ -1,9 +1,9 @@
-package com.domhelper.bean;
+package com.domhelper.bean.impl;
 
 import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.annotation.JSONField;
+import com.domhelper.bean.JsonBean;
 
 /**
  * @Author: xuefrye
@@ -12,7 +12,7 @@ import com.alibaba.fastjson.annotation.JSONField;
  * @File: Admin
  * @Description: admin_table实体类
  */
-public class Admin {
+public class Admin implements JsonBean {
     @JSONField(name = "admin_id")
     private Integer adminId;
 

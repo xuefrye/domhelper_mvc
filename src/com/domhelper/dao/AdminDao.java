@@ -1,6 +1,6 @@
 package com.domhelper.dao;
 
-import com.domhelper.bean.Admin;
+import com.domhelper.bean.impl.Admin;
 
 import java.util.List;
 

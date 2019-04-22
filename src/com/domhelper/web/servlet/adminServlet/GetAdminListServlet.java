@@ -1,7 +1,7 @@
 package com.domhelper.web.servlet.adminServlet;
 
 import com.alibaba.fastjson.JSONArray;
-import com.domhelper.bean.Admin;
+import com.domhelper.bean.impl.Admin;
 import com.domhelper.service.AdminService;
 import com.domhelper.service.impl.AdminServiceImpl;
 import com.domhelper.utils.ResponseFormat;

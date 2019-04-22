@@ -1,8 +1,9 @@
-package com.domhelper.bean;
+package com.domhelper.bean.impl;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.annotation.JSONField;
+import com.domhelper.bean.JsonBean;
 
 /**
  * @Author: xuefrye
@@ -11,7 +12,7 @@ import com.alibaba.fastjson.annotation.JSONField;
  * @File: Doorlady
  * @Description: doorlady_table实体类
  */
-public class Doorlady {
+public class Doorlady implements JsonBean {
     @JSONField(name = "doorlady_id")
     int doorladyId;
 

@@ -1,7 +1,7 @@
 package com.domhelper.test;
 
 import com.alibaba.fastjson.JSONArray;
-import com.domhelper.bean.Admin;
+import com.domhelper.bean.impl.Admin;
 import com.domhelper.dao.AdminDao;
 import com.domhelper.dao.impl.AdminDaoImpl;
 import org.junit.Test;

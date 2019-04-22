@@ -1,8 +1,9 @@
-package com.domhelper.bean;
+package com.domhelper.bean.impl;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.annotation.JSONField;
+import com.domhelper.bean.JsonBean;
 
 import java.util.List;
 
@@ -11,9 +12,9 @@ import java.util.List;
  * @Date: 2019/4/21 17:23
  * @Version: 1.0
  * @File: PageBean
- * @Description: 封装每一页显示的内容和类型, 显示范围(页数, 行数)的JavaBean类, List<T> list 封装bean包下的实体类
+ * @Description: 封装每一页显示的内容和类型, 显示范围(页数, 行数)的JavaBean类, List<T> list 存储bean包下的实体类
  */
-public class PageBean<T> {
+public class PageBean<T> implements JsonBean {
     @JSONField(name = "total_count")
     private int totalCount; //总记录数 从数据库获取
 

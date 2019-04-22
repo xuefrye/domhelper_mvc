@@ -1,4 +1,7 @@
-package com.domhelper.bean;
+package com.domhelper.bean.impl;
+
+import com.alibaba.fastjson.JSONObject;
+import com.domhelper.bean.JsonBean;
 
 import java.util.Date;
 
@@ -9,7 +12,7 @@ import java.util.Date;
  * @File: User
  * @Description: user_table实体类
  */
-public class User {
+public class User implements JsonBean {
     String userid;
     String openid;
     String username;
@@ -28,6 +31,16 @@ public class User {
     int isprove;
     String dorm_building;
     String dorm_num;
+
+    @Override
+    public String toJSONString() {
+        return null;
+    }
+
+    @Override
+    public JSONObject toJSONObject() {
+        return null;
+    }
 
     //TODO
 }

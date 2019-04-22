@@ -1,7 +1,7 @@
 package com.domhelper.dao.impl;
 
-import com.domhelper.bean.Admin;
-import com.domhelper.bean.Doorlady;
+import com.domhelper.bean.impl.Admin;
+import com.domhelper.bean.impl.Doorlady;
 import com.domhelper.dao.DoorladyDao;
 import com.domhelper.utils.JDBCUtils;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;

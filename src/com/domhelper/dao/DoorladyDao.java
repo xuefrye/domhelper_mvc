@@ -1,7 +1,7 @@
 package com.domhelper.dao;
 
-import com.domhelper.bean.Admin;
-import com.domhelper.bean.Doorlady;
+import com.domhelper.bean.impl.Admin;
+import com.domhelper.bean.impl.Doorlady;
 
 import java.util.List;
 

@@ -3,8 +3,7 @@ package com.domhelper.test.otherTest;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
-import com.domhelper.bean.Admin;
-import javafx.scene.AmbientLight;
+import com.domhelper.bean.impl.Admin;
 import org.junit.Test;
 
 /**

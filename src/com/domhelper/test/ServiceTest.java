@@ -1,6 +1,6 @@
 package com.domhelper.test;
 
-import com.domhelper.bean.Admin;
+import com.domhelper.bean.impl.Admin;
 import com.domhelper.service.AdminService;
 import com.domhelper.service.impl.AdminServiceImpl;
 import org.junit.Test;

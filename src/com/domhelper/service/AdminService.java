@@ -1,6 +1,6 @@
 package com.domhelper.service;
 
-import com.domhelper.bean.Admin;
+import com.domhelper.bean.impl.Admin;
 
 import java.util.List;
 

@@ -1,7 +1,7 @@
 package com.domhelper.service;
 
-import com.domhelper.bean.Doorlady;
-import com.domhelper.bean.PageBean;
+import com.domhelper.bean.impl.Doorlady;
+import com.domhelper.bean.impl.PageBean;
 
 /**
  * @Author: xuefrye

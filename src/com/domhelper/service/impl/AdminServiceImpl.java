@@ -1,6 +1,6 @@
 package com.domhelper.service.impl;
 
-import com.domhelper.bean.Admin;
+import com.domhelper.bean.impl.Admin;
 import com.domhelper.dao.AdminDao;
 import com.domhelper.dao.impl.AdminDaoImpl;
 import com.domhelper.service.AdminService;
