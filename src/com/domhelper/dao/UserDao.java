@@ -1,5 +1,7 @@
 package com.domhelper.dao;
 
+import com.domhelper.bean.impl.User;
+
 /**
  * @Author: xuefrye
  * @Date: 2019/4/18 4:54
@@ -8,5 +10,9 @@ package com.domhelper.dao;
  * @Description: user_table表数据库访问接口
  */
 public interface UserDao {
-    //TODO
+    User findByOpenId(String openId);
+
+    int add(User user);
+
+    int update(User user);
 }

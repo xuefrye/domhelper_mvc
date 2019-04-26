@@ -47,22 +47,28 @@ public class DoorladyDaoImpl implements DoorladyDao {
 
     @Override
     public int cancelProveById(int id) {
-        String sql = "update doorlady_table set is_proved = 0 where doorlady_id = ?";
+        String sql = " update doorlady_table set is_proved = 0 where doorlady_id = ? ";
         return template.update(sql, id);
     }
 
     @Override
     public int proveById(int id) {
-        String sql = "update doorlady_table set is_proved = 1 where doorlady_id = ?";
+        String sql = " update doorlady_table set is_proved = 1 where doorlady_id = ? ";
         return template.update(sql, id);
     }
 
     @Override
     public int update(Doorlady doorlady) {
-        String sql = "update doorlady_table set doorlady_name=?,gender=?," +
-                "tel=?,school=?,headurl=?,university=?,dorm_building=? where doorlady_id=?";
-        int result = template.update(sql, doorlady.getDoorladyName(), doorlady.getGender(), doorlady.getTel(),
-                doorlady.getSchool(), doorlady.getHeadurl(), doorlady.getUniversity(), doorlady.getDormBuilding(),
+        String sql = " update doorlady_table set doorlady_name=?, gender=?, " +
+                "tel=?, school=?, head_url=?, university=?, dorm_building=? where doorlady_id = ? ";
+        int result = template.update(sql,
+                doorlady.getDoorladyName(),
+                doorlady.getGender(),
+                doorlady.getTel(),
+                doorlady.getSchool(),
+                doorlady.getHeadUrl(),
+                doorlady.getUniversity(),
+                doorlady.getDormBuilding(),
                 doorlady.getDoorladyId());
         return result;
     }

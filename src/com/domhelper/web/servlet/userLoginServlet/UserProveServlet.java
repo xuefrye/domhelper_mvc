@@ -1,6 +1,9 @@
 package com.domhelper.web.servlet.userLoginServlet;
 
 import com.alibaba.fastjson.JSONObject;
+import com.domhelper.bean.impl.User;
+import com.domhelper.service.UserService;
+import com.domhelper.service.impl.UserServiceImpl;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -15,9 +18,6 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLEncoder;
-import java.sql.Connection;
-import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -192,24 +192,22 @@ public class UserProveServlet extends HttpServlet {
     }
 
     //	保存在数据库
-    private Boolean insertInfo(String stuNum, String relName, String gender, String school, String major, String grade) {
-       /*TODO 改用service方式查询数据库
-        Connection db = Database.connect();
-        try {
-            Statement stmt = db.createStatement();
-            String sql = String.format("UPDATE user_table SET username='%s',stuNum='%s',gender='%s',school='%s',major='%s',grade='%s',isprove='1' WHERE userid='%s'", relName, stuNum, gender, school, major, grade, this.userId);
-            int rs = stmt.executeUpdate(sql);
-            if (rs > 0) {
-                return true;
-            } else {
-                return false;
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-            return false;
-        }
-*/
-        return false;
-    }
+    private Boolean insertInfo(String stuNum, String realName, String gender, String school, String major, String grade) {
+        UserService service = new UserServiceImpl();
 
+        User user = new User();
+        user.setStuNum(stuNum);
+        user.setUserNick(realName);
+        user.setGender(gender);
+        user.setSchool(school);
+        user.setMajor(major);
+        user.setGrade(grade);
+        user.setUserId(this.userId);
+        int result = service.update(user);
+
+        if (result > 0)
+            return true;
+        else
+            return false;
+    }
 }

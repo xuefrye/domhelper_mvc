@@ -1,6 +1,8 @@
 package com.domhelper.dao.impl;
 
 import com.domhelper.dao.NoticeTableDao;
+import com.domhelper.utils.JDBCUtils;
+import org.springframework.jdbc.core.JdbcTemplate;
 
 /**
  * @Author: xuefrye
@@ -10,5 +12,7 @@ import com.domhelper.dao.NoticeTableDao;
  * @Description: NoticeTableDao实现类
  */
 public class NoticeTableDaoImpl implements NoticeTableDao {
+    //连接模板对象
+    private JdbcTemplate template = new JdbcTemplate(JDBCUtils.getDataSource());
     //TODO
 }

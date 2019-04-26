@@ -4,6 +4,9 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 
+import com.domhelper.bean.impl.User;
+import com.domhelper.service.UserService;
+import com.domhelper.service.impl.UserServiceImpl;
 import com.domhelper.utils.ResponseFormat;
 import org.apache.commons.codec.digest.DigestUtils;
 
@@ -130,55 +133,38 @@ public class LoginServlet extends HttpServlet {
         }
     }
 
+
     //	查询用户是否已注册
     private Boolean queryUser() {
-        Connection db = Database.connect();
-        try {
-            Statement stmt = db.createStatement();
-            String sql = "SELECT * FROM user_table WHERE openid='" + this.openId + "'";
-            ResultSet rs = stmt.executeQuery(sql);
-            if (rs.next()) {
-//				关闭数据库相关操作
-                Database.release(rs, stmt, db);
-                return true;
-            } else {
-//				关闭数据库相关操作
-                Database.release(rs, stmt, db);
-                return false;
-            }
-        } catch (SQLException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-            Database.release(db);
-            return false;
-        }
+        UserService service = new UserServiceImpl();
+        User user = service.findByOpenid(this.openId);
 
+        if (user == null)
+            return false;
+        else
+            return true;
     }
 
+
     //	用户注册。写入数据库
-    private Boolean register(String nickName, String headurl) {
-        Connection db = Database.connect();
+    private Boolean register(String nickName, String headUrl) {
+        UserService service = new UserServiceImpl();
+
         long time = new Date().getTime();
         int rand = (int) (Math.random() * 9999);
         String userid = "U" + time + rand;
-        try {
-            Statement stmt = db.createStatement();
-            String sql = "INSERT INTO user_table (userid,openid,usernick,headurl) VALUES ('" + userid + "','" + this.openId + "','" + nickName + "','" + headurl + "')";
-            int rs = stmt.executeUpdate(sql);
-            Database.release(stmt, db);
-            if (rs > 0) {
-                return true;
-            } else {
-                return false;
-            }
 
-        } catch (SQLException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-            Database.release(db);
+        User user = new User();
+        user.setUserId(userid);
+        user.setOpenId(this.openId);
+        user.setUserNick(nickName);
+        user.setHeadUrl(headUrl);
+        int result = service.add(user);
+
+        if (result > 0)
+            return true;
+        else
             return false;
-        }
-
     }
 
     //	生成登录态
@@ -187,53 +173,13 @@ public class LoginServlet extends HttpServlet {
         this.makeSession = makeSession;
     }
 
+    /**
+     * 获取user json
+     * @return
+     */
     private JSONObject getUser() {
-        Connection db = Database.connect();
-        JSONObject data = new JSONObject();
-        try {
-            Statement stmt = db.createStatement();
-            String sql = "SELECT * FROM user_table WHERE openid='" + this.openId + "'";
-            ResultSet rs = stmt.executeQuery(sql);
-            if (rs.next()) {
-                String userid = rs.getString("userid");
-                String username = rs.getString("username");  //用户名
-                String usernick = rs.getString("usernick");  //昵称
-                String gender = rs.getString("gender");      //性别
-                String headurl = rs.getString("headurl");
-//				String tel=rs.getString("tel");  //电话
-                String university = rs.getString("university");  //大学
-                String school = rs.getString("school");  //学院
-                String entrancetime = rs.getString("entrancetime");  //入校时间
-//				String graduatetime=rs.getString("graduatetime");  //毕业时间
-//				String studentcard=rs.getString("studentcard");  //学生号
-                String dorm_building = rs.getString("dorm_building");  //宿舍楼
-                String dorm_num = rs.getString("dorm_num");  //宿舍房间号
-                String isprove = rs.getString("isprove");  //是否认证
-
-                data.put("userId", userid);
-                data.put("userName", username);
-                data.put("userNick", usernick);
-                data.put("gender", gender);
-                data.put("headUrl", headurl);
-                data.put("university", university);
-                data.put("school", school);
-                data.put("entranceTime", entrancetime);
-                data.put("dormBuilding", dorm_building);
-                data.put("dormNum", dorm_num);
-                data.put("isProve", isprove);
-//				关闭数据库相关操作
-                Database.release(rs, stmt, db);
-                return data;
-            } else {
-//				关闭数据库相关操作
-                Database.release(rs, stmt, db);
-                return data;
-            }
-        } catch (SQLException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-            Database.release(db);
-            return data;
-        }
+        UserService service = new UserServiceImpl();
+        User user = service.findByOpenid(this.openId);
+        return user.toJSONObject();
     }
 }

@@ -14,34 +14,34 @@ import com.domhelper.bean.JsonBean;
  */
 public class Doorlady implements JsonBean {
     @JSONField(name = "doorlady_id")
-    int doorladyId;
+    private int doorladyId;
 
     @JSONField(name = "doorlady_name")
-    String doorladyName;
+    private String doorladyName;
 
     @JSONField(name = "openid")
-    String openid;
+    private String openid;
 
     @JSONField(name = "gender")
-    String gender;
+    private String gender;
 
     @JSONField(name = "tel")
-    String tel;
+    private String tel;
 
     @JSONField(name = "school")
-    String school;
+    private String school;
 
     @JSONField(name = "dorm_building")
-    String dormBuilding;
+    private String dormBuilding;
 
-    @JSONField(name = "headurl")
-    String headurl;
+    @JSONField(name = "head_url")
+    private String headUrl;
 
     @JSONField(name = "is_proved")
-    String isProved;
+    private String isProved;
 
     @JSONField(name = "university")
-    String university;
+    private String university;
 
     public int getDoorladyId() {
         return doorladyId;
@@ -99,12 +99,12 @@ public class Doorlady implements JsonBean {
         this.dormBuilding = dormBuilding;
     }
 
-    public String getHeadurl() {
-        return headurl;
+    public String getHeadUrl() {
+        return headUrl;
     }
 
-    public void setHeadurl(String headurl) {
-        this.headurl = headurl;
+    public void setHeadUrl(String headUrl) {
+        this.headUrl = headUrl;
     }
 
     public String getIsProved() {
@@ -121,22 +121,6 @@ public class Doorlady implements JsonBean {
 
     public void setUniversity(String university) {
         this.university = university;
-    }
-
-    @Override
-    public String toString() {
-        return "Doorlady{" +
-                "doorladyId=" + doorladyId +
-                ", doorladyName='" + doorladyName + '\'' +
-                ", openid='" + openid + '\'' +
-                ", gender='" + gender + '\'' +
-                ", tel='" + tel + '\'' +
-                ", school='" + school + '\'' +
-                ", dormBuilding='" + dormBuilding + '\'' +
-                ", headurl='" + headurl + '\'' +
-                ", isProved='" + isProved + '\'' +
-                ", university='" + university + '\'' +
-                '}';
     }
 
     public String toJSONString() {
